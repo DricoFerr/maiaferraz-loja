@@ -54,10 +54,10 @@ function HomePage() {
           <section className="contact-section" id="contact-section">
             <h2>Contato</h2>
             <div className="social-media-buttons">
-                <a href="https://wa.me/5527999999999" target="_blank" rel="noopener noreferrer" className="social-button whatsapp">
+                <a href="https://wa.me/5533999958466" target="_blank" rel="noopener noreferrer" className="social-button whatsapp">
                     <FontAwesomeIcon icon={faWhatsapp} /> WhatsApp
                 </a>
-                <a href="https://instagram.com/maiaferraz" target="_blank" rel="noopener noreferrer" className="social-button instagram">
+                <a href="https://instagram.com/maiaferrazmodafitness" target="_blank" rel="noopener noreferrer" className="social-button instagram">
                     <FontAwesomeIcon icon={faInstagram} /> Instagram
                 </a>
             </div>
