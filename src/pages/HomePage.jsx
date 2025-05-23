@@ -61,7 +61,7 @@ function HomePage() {
                     <FontAwesomeIcon icon={faInstagram} /> Instagram
                 </a>
             </div>
-            <p className="address-info"><FontAwesomeIcon icon={faMapMarkerAlt} /> Rua da Moda, 123 - Centro, Vitória - ES</p>
+            <p className="address-info"><FontAwesomeIcon icon={faMapMarkerAlt} /> Nanuque - MG</p>
           </section>
         </section>
       </div>
