@@ -1,0 +1,57 @@
+/* src/styles/CollectionPage.css */
+
+.collection-page-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 3.5em;
+    font-weight: 900;
+    color: #ed0081;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+    /* <<<< AJUSTE AQUI: Sombreamento mais pronunciado */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.2);
+
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    animation: slideInTitle 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes slideInTitle {
+    from {
+        opacity: 0;
+        clip-path: inset(0 100% 0 0);
+    }
+    to {
+        opacity: 1;
+        clip-path: inset(0 0% 0 0);
+    }
+}
+
+.collection-page-container {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+/* Media Queries para responsividade do título */
+@media (max-width: 768px) {
+  .collection-page-title {
+    font-size: 2.5em; /* Reduz o tamanho da fonte */
+    letter-spacing: 1px; /* Reduz o espaçamento das letras */
+    margin-bottom: 40px;
+    padding: 0 15px; /* Adiciona um pequeno padding lateral para não colar nas bordas */
+    word-break: break-word; /* Ajuda a quebrar palavras longas se a linha for muito pequena */
+  }
+}
+
+@media (max-width: 480px) {
+  .collection-page-title {
+    font-size: 1.8em; /* Ajuste ainda menor para telas de celular pequenas */
+    letter-spacing: 0; /* Remove o espaçamento de letras completamente */
+  }
+}

@@ -1,0 +1,207 @@
+/* src/styles/HomePage.css */
+
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 100px); /* Ajuste conforme a altura do seu header */
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+/* ====================================================================== */
+/* ANIMAÇÃO DE FADE-IN DA ESQUERDA PARA A DIREITA */
+/* ====================================================================== */
+
+/* Keyframes da animação */
+@keyframes fadeInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* As animações só são aplicadas quando o app-content-wrapper NÃO tem a classe loading-active */
+.app-content-wrapper:not(.loading-active) .hero-title {
+  animation: fadeInFromLeft 0.7s ease-out forwards;
+}
+
+.app-content-wrapper:not(.loading-active) .hero-subtitle {
+  animation: fadeInFromLeft 0.7s ease-out forwards;
+}
+
+.app-content-wrapper:not(.loading-active) .hero-button {
+    background-color: #ed0081;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    animation: fadeInFromLeft 0.7s ease-out forwards;
+}
+
+.hero-button:hover {
+    background-color: #d10072;
+}
+
+/* ====================================================================== */
+/* ESTILOS DA SEÇÃO DE CONTATO (AJUSTADOS) */
+/* ====================================================================== */
+.contact-section {
+  background-color: #f8f8f8;
+  padding: 60px 20px;
+  margin-top: 40px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact-section h2 {
+  color: #333;
+  font-size: 2.5em;
+  margin-bottom: 30px; /* Mais espaço abaixo do título */
+}
+
+.social-media-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Espaço entre os botões */
+  margin-bottom: 30px; /* Espaço abaixo dos botões e antes da localização */
+  flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+}
+
+.social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px; /* Aumentado o padding para botões grandes */
+  border-radius: 8px; /* Cantos levemente arredondados */
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3em; /* Tamanho da fonte dos botões */
+  width: 250px; /* Largura fixa para os botões */
+  max-width: 100%; /* Garante que não ultrapasse o contêiner em mobile */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacá-los */
+}
+
+.social-button .svg-inline--fa {
+  margin-right: 12px; /* Mais espaço entre ícone e texto no botão */
+  font-size: 1.4em; /* Tamanho do ícone dentro do botão */
+}
+
+.social-button.whatsapp {
+  background-color: #25D366; /* Cor do WhatsApp */
+}
+
+.social-button.whatsapp:hover {
+  background-color: #1DA851; /* Tom mais escuro no hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.social-button.instagram {
+  /* Gradiente do Instagram: use um gradiente mais comum ou uma cor sólida se preferir simplicidade */
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-color: #C13584; /* Fallback color */
+}
+
+.social-button.instagram:hover {
+  background: radial-gradient(circle at 30% 107%, #ffe08e 0%, #ffe08e 5%, #ff4b3a 45%, #b11f87 60%, #224bcc 90%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.address-info {
+  font-size: 1.1em;
+  color: #555;
+  margin-top: 30px; /* Espaço para o endereço abaixo dos botões */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.address-info .svg-inline--fa {
+  margin-right: 10px;
+  color: #ed0081; /* Cor do ícone de localização */
+  font-size: 1.3em;
+}
+
+/* Media query para mobile */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5em;
+  }
+  .hero-content p {
+    font-size: 1.2em;
+  }
+
+  .contact-section {
+    padding: 40px 15px;
+  }
+
+  .contact-section h2 {
+    font-size: 2em;
+  }
+
+  .social-media-buttons {
+    flex-direction: column; /* Botões empilhados em mobile */
+    gap: 15px; /* Menor espaço entre botões em mobile */
+  }
+
+  .social-button {
+    width: 100%; /* Ocupa a largura total em mobile */
+    font-size: 1.1em;
+    padding: 12px 20px;
+  }
+
+  .social-button .svg-inline--fa {
+    font-size: 1.2em;
+  }
+
+  .address-info {
+    font-size: 1em;
+  }
+}

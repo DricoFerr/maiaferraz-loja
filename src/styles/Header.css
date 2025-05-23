@@ -1,0 +1,256 @@
+/* src/styles/Header.css */
+
+.main-header {
+  background-color: #ed0081;
+  height: 100px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.main-header .header-logo {
+  height: 100px;
+}
+
+.main-header .logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.main-header nav {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-spacer {
+  flex-grow: 1;
+}
+
+.desktop-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.desktop-menu li {
+  margin-left: 50px;
+  position: relative; /* Importante para posicionar o dropdown */
+}
+
+.desktop-menu a, .desktop-menu .collections-toggle { /* Inclui o novo span toggle */
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+  display: flex; /* Para alinhar ícone e texto */
+  align-items: center;
+  cursor: pointer; /* Indica que é clicável/interativo */
+}
+
+.desktop-menu a:hover, .desktop-menu .collections-toggle:hover {
+  color: #f0f0f0;
+}
+
+/* ====================================================================== */
+/* ESTILOS PARA LINKS COM ÍCONES */
+/* ====================================================================== */
+.nav-icon {
+  margin-right: 8px;
+  font-size: 1.0em;
+}
+
+/* ====================================================================== */
+/* ESTILOS PARA O DROPDOWN DE COLEÇÕES (DESKTOP) */
+/* ====================================================================== */
+.collections-dropdown-menu {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  position: absolute;
+  top: 100%; /* Posiciona abaixo do item "Coleções" */
+  left: 50%; /* Centraliza o dropdown com o item pai */
+  transform: translateX(-50%); /* Ajuste para centralização real */
+  background-color: #ed0081; /* Cor de fundo do header */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  min-width: 180px; /* Largura mínima do dropdown */
+  z-index: 100; /* Garante que o dropdown fique acima de outros elementos */
+  opacity: 0; /* Começa invisível */
+  visibility: hidden; /* Oculta para não ser clicável */
+  transform: translateY(10px) translateX(-50%); /* Inicia um pouco para baixo para transição */
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.collections-dropdown-container:hover .collections-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) translateX(-50%); /* Retorna à posição original */
+}
+
+.collections-dropdown-menu li a {
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block; /* Para que o padding funcione na área de clique */
+  white-space: nowrap;
+  font-size: 1em; /* Tamanho da fonte dos itens do dropdown */
+}
+
+.collections-dropdown-menu li a:hover {
+  background-color: #d10072; /* Cor mais escura no hover do item */
+}
+
+.dropdown-arrow {
+  margin-left: 8px; /* Espaço para a seta */
+  font-size: 0.8em; /* Tamanho da seta */
+  transition: transform 0.3s ease;
+}
+
+
+/* Hamburguer button (Mobile) */
+.hamburger-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1100;
+}
+
+.hamburger-line {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+  transition: all 0.3s ease;
+}
+
+/* Sidebar (Mobile) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #ed0081;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  z-index: 1001;
+  padding-top: 60px;
+  box-sizing: border-box;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.close-sidebar-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  margin-bottom: 20px;
+  position: relative; /* Para o submenu mobile */
+}
+
+.sidebar-menu a, .sidebar-link-with-icon { /* Inclui a nova classe de link para mobile */
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+  display: block;
+  padding: 10px 0;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.sidebar-menu a:hover, .sidebar-link-with-icon:hover {
+  color: #f0f0f0;
+}
+
+/* Submenu para mobile */
+.sidebar-submenu {
+  list-style: none;
+  padding: 10px 0 0 20px; /* Indentação para submenu */
+  margin: 0;
+  /* background-color: rgba(255, 255, 255, 0.1); */ /* Opcional: fundo para submenu */
+  border-top: 1px solid rgba(255, 255, 255, 0.2); /* Separador visual */
+}
+
+.sidebar-submenu li {
+  margin-bottom: 10px;
+}
+
+.sidebar-submenu li:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar-submenu li a {
+  font-size: 1.1em;
+  padding: 5px 0;
+}
+
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* ====================================================================== */
+/* Media Queries (Responsive Design) */
+/* ====================================================================== */
+
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .header-spacer {
+    display: none;
+  }
+
+  .hamburger-button {
+    display: block;
+  }
+
+  .main-header nav {
+    justify-content: space-between;
+  }
+
+  /* Oculta o dropdown de coleções no mobile quando a classe .collections-dropdown-menu está no escopo desktop */
+  .collections-dropdown-container .collections-dropdown-menu {
+    display: none; /* Garante que o dropdown desktop não apareça em mobile */
+  }
+}

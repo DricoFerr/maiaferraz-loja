@@ -1,0 +1,62 @@
+/* src/components/ProductCard.css */
+
+.product-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra suave */
+  overflow: hidden; /* Garante que a imagem respeite o border-radius */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para efeito hover */
+  cursor: pointer;
+  padding-bottom: 15px; /* Espaço para o botão/texto na parte inferior */
+  height: 100%; /* Garante que o card preencha a altura do item do grid */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Espaça o conteúdo */
+}
+
+.product-card:hover {
+  transform: translateY(-8px) scale(1.02); /* Efeito de elevação no hover */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.product-card img {
+  width: 100%;
+  height: 500px; /* Altura fixa para as imagens dos cards de produto */
+  object-fit: contain; /* <<<< MUDANÇA AQUI: de 'cover' para 'contain' */
+  display: block;
+  margin-bottom: 15px;
+  background-color: #f0f0f0; /* Opcional: cor de fundo para as barras brancas */
+}
+
+.product-card h3 {
+  font-size: 1.4em; /* Tamanho do nome do produto */
+  color: #333;
+  margin: 0 15px 10px; /* Margem e espaçamento lateral */
+  font-weight: 600;
+}
+
+.product-card .price {
+  font-size: 1.3em;
+  color: #ed0081; /* Cor de destaque para o preço */
+  font-weight: 700;
+  margin: 0 15px 15px;
+}
+
+.product-card button {
+  background-color: #ed0081;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 0 15px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  align-self: center; /* Centraliza o botão se o flex for column */
+}
+
+.product-card button:hover {
+  background-color: #c9006b;
+}

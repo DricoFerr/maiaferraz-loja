@@ -1,0 +1,85 @@
+/* src/styles/ProductCardsSection.css */
+/* Este arquivo define o layout da seção de cards de produto */
+
+.product-cards-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+.product-cards-section h2 {
+  font-size: 2.5em;
+  color: #ed0081;
+  text-align: center;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.8s;
+  opacity: 0;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.product-cards-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os cards quebrem a linha */
+  justify-content: center;
+  gap: 30px; /* Espaço entre os cards */
+  padding: 20px 0;
+}
+
+/* ESTILO PARA CADA ITEM DO GRID (Para Desktop: 3 cards por linha) */
+.product-card-item {
+  /* flex-grow: 0 (não cresce), flex-shrink: 1 (encolhe), flex-basis: largura ideal */
+  /* Largura para 3 cards por linha, descontando o gap de 30px entre eles. */
+  /* (30px de gap * 2 (entre 3 items) / 3 items) = 20px de "share" de gap por item */
+  flex: 0 1 calc(33.33% - 20px);
+  max-width: 380px; /* Limite máximo para cada card em desktop */
+}
+
+
+/* ====================================================================== */
+/* Media Queries para responsividade */
+/* ====================================================================== */
+@media (max-width: 768px) {
+  .product-cards-section {
+    padding: 0 20px; /* Ajusta o padding lateral para telas menores */
+  }
+
+  .product-cards-section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  .product-cards-container {
+    /* Garante que os cards continuem um embaixo do outro no mobile */
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+    padding-left: 0;
+    padding-right: 0;
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
+  }
+
+  .product-card-item {
+    /* 1 card por linha no mobile, ocupando 90% da largura do contêiner */
+    flex: 1 1 90%;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+    .product-cards-section h2 {
+        font-size: 1.8em;
+    }
+}

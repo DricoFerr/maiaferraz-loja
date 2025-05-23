@@ -1,0 +1,101 @@
+/* src/styles/FeaturedCarousel.css */
+
+.featured-carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 25px 20px; /* <<<< AJUSTE AQUI: Adiciona padding interno */
+  box-sizing: border-box;
+  background-color: #F8D8D8; /* <<<< NOVO: Fundo rosa pastel */
+  border-radius: 12px; /* Opcional: bordas arredondadas para o fundo */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Opcional: uma sombra sutil para o contêiner */
+}
+
+.main-image-display {
+  width: 100%;
+  height: 450px;
+  max-height: 550px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.main-image-display img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background-color: #f0f0f0;
+}
+
+.thumbnail-grid {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.thumbnail-item {
+  width: calc(100% / 3 - 10px);
+  max-width: 200px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.thumbnail-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.thumbnail-item.active {
+  border-color: #ed0081;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.thumbnail-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background-color: #f0f0f0;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+  .featured-carousel-container {
+    padding: 20px 10px; /* Ajusta padding no mobile */
+    margin: 40px auto;
+  }
+
+  .main-image-display {
+    height: 300px;
+    max-height: 400px;
+  }
+
+  .thumbnail-grid {
+    gap: 10px;
+  }
+
+  .thumbnail-item {
+    width: calc(100% / 2 - 5px);
+    height: 90px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .thumbnail-item {
+    width: 100%;
+    height: 150px;
+  }
+}

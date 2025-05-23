@@ -1,0 +1,68 @@
+/* src/styles/InfiniteCarousel.css */
+
+.carousel-infinite-wrapper {
+  position: relative;
+  width: 100%;
+  height: var(--carousel-height); 
+  overflow: hidden; 
+  margin-bottom: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: transparent; /* <<<< MUDANÇA AQUI: DE #f0f0f0 PARA transparent */
+}
+
+/* Definimos a largura de cada slot de imagem e o tempo de transição aqui */
+/* Usamos as variáveis passadas do JS */
+.carousel-slide-container {
+  display: flex; /* Transforma em um container flex para as imagens */
+  height: 100%;
+  gap: 0; /* Garante que não haja espaçamento entre os itens flex */
+  
+  /* Largura total do contêiner de slide: largura de um slot * número total de imagens duplicadas */
+  width: calc(100vw / var(--images-per-view) * var(--num-original-images) * var(--num-copies)); 
+
+  /* Aplica a animação infinita e linear (sem aceleração/desaceleração) */
+  animation: slideInifinite var(--animation-speed) linear infinite;
+  /* Garante que a animação continue mesmo se o usuário mudar de aba (não essencial, mas bom) */
+  animation-play-state: running; 
+}
+
+.carousel-image {
+  flex-shrink: 0; 
+  height: 100%; 
+  object-fit: cover; /* Mantido em 'contain' para não cortar a imagem */
+  width: calc(100vw / var(--images-per-view)); 
+}
+
+/* Animação para o carrossel infinito e fluido */
+@keyframes slideInifinite {
+  0% {
+    /* Começa na posição normal (ou o início do primeiro conjunto de imagens) */
+    transform: translateX(0); 
+  }
+  100% {
+    /* Move o carrossel para a esquerda pela largura de um CONJUNTO ORIGINAL de imagens.
+       Quando ele chega aqui, ele "teleporta" instantaneamente para o início do próximo conjunto idêntico,
+       criando um loop sem fim aparente.
+       O valor de -100% aqui refere-se a 100% da largura do contêiner slide-container, MAS é da largura de um SET original.
+       A animação se move por um conjunto completo de imagens.
+    */
+    transform: translateX(calc(100vw / var(--images-per-view) * var(--num-original-images) * -1));
+  }
+}
+
+/* ====================================================================== */
+/* Media Queries para responsividade */
+/* ====================================================================== */
+@media (max-width: 768px) {
+  .carousel-infinite-wrapper {
+    --carousel-height: 450px; /* Altura ajustada para mobile. Você pode ajustar este valor se as imagens ficarem muito cortadas com a nova largura total. */
+    --images-per-view: 1; /* <<<< AQUI: 1 imagem visível no mobile, ocupando a largura total */
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-infinite-wrapper {
+    --carousel-height: 350px; /* Altura menor para telas muito pequenas */
+    --images-per-view: 1.1; /* Ex: 1 imagem inteira e um pouquinho da próxima */
+  }
+}
