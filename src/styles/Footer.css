@@ -1,0 +1,14 @@
+/* src/styles/Footer.css */
+.main-footer {
+  background-color: #ed0081; /* Mesma cor do cabeçalho */
+  color: white; /* Cor do texto para contraste */
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9em;
+  width: 100%;
+  box-sizing: border-box; /* Garante que padding e borda não aumentem a largura total */
+}
+
+.main-footer p {
+  margin: 0; /* Remove a margem padrão de parágrafos */
+}
